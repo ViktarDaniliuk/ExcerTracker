@@ -35,21 +35,9 @@ export default class EditExercise extends Component {
          });
    };
 
-   onChangeUsername = (e) => {
+   onChange = (e) => {
       this.setState({
-         username: e.target.value
-      });
-   };
-
-   onChangeDescription = (e) => {
-      this.setState({
-         description: e.target.value
-      });
-   };
-
-   onChangeDuration = (e) => {
-      this.setState({
-         duration: e.target.value
+         [e.target.name]: e.target.value
       });
    };
 
@@ -89,7 +77,8 @@ export default class EditExercise extends Component {
                      required 
                      className="form-control" 
                      value={this.state.username}
-                     onChange={this.onChangeUsername}
+                     name="username"
+                     onChange={this.onChange}
                   >
                      {
                         this.state.users.map(user => {
@@ -110,9 +99,10 @@ export default class EditExercise extends Component {
                   <input 
                      type="text" 
                      required
+                     name="description"
                      className="form-control" 
                      value={this.state.description}
-                     onChange={this.onChangeDescription}
+                     onChange={this.onChange}
                   />
                </div>
                <div className="form-group">
@@ -120,9 +110,10 @@ export default class EditExercise extends Component {
                   <input 
                      type="text" 
                      required
+                     name="duration"
                      className="form-control" 
                      value={this.state.duration}
-                     onChange={this.onChangeDuration}
+                     onChange={this.onChange}
                   />
                </div>
                <div className="form-group">
